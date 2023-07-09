@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://oq3qd4g1e6a"]
+
+[ext_resource type="Script" path="res://Entities/Player/scripts/camera-arm.gd" id="2_ghc1o"]
+[ext_resource type="Script" path="res://Entities/Player/scripts/StateMacheine.gd" id="2_y06s4"]
+[ext_resource type="Script" path="res://Entities/Player/scripts/States/WalkState.gd" id="3_dmg18"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b08w3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_78x7l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ensfc"]
+
+[node name="player" type="Node3D"]
+
+[node name="PlayerBody" type="RigidBody3D" parent="."]
+mass = 10.0
+inertia = Vector3(0.55, 0, 0)
+continuous_cd = true
+can_sleep = false
+lock_rotation = true
+
+[node name="Hitbox" type="CollisionShape3D" parent="PlayerBody"]
+shape = SubResource("CapsuleShape3D_b08w3")
+
+[node name="Vis" type="MeshInstance3D" parent="PlayerBody"]
+mesh = SubResource("CapsuleMesh_78x7l")
+
+[node name="SlopeCast" type="RayCast3D" parent="PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="GroundCast" type="ShapeCast3D" parent="PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
+shape = SubResource("SphereShape3D_ensfc")
+target_position = Vector3(0, 0, 0)
+
+[node name="camera-yaw" type="Node3D" parent="."]
+script = ExtResource("2_ghc1o")
+
+[node name="camera-pitch" type="Node3D" parent="camera-yaw"]
+transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 0, 0)
+
+[node name="main cam" type="Camera3D" parent="camera-yaw/camera-pitch"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 0.999999, 0, 1.42109e-14, 0, 0.999999, 7.04276e-07, 0, 8.05597)
+
+[node name="StateMacheine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_y06s4")
+initial_state = NodePath("WalkState")
+
+[node name="WalkState" type="Node" parent="StateMacheine"]
+script = ExtResource("3_dmg18")
