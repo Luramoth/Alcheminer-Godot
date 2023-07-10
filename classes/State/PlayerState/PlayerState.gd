@@ -23,7 +23,12 @@ func on_slope() -> bool:
 	return false
 
 func get_slope_angle() -> Vector3:
-	var plane: Vector3 = info.SlopeRay.get_collision_normal().rotated(Vector3.RIGHT, -PI/2).rotated(Vector3.FORWARD, PI/4).project(move_direction)
+	var slope_angle: float = Vector3.UP.angle_to(info.SlopeRay.get_collision_normal()) # rotation still doesent work but i may be on to somthing
+	var plane: Vector3 = move_direction.rotated(info.SlopeRay.get_collision_normal(), slope_angle).rotated(Vector3.UP, PI/2) if move_direction.length() > 0 else Vector3.ZERO
+
+	print(slope_angle)
+	print(plane)
+
 	return plane
 
 func get_speed_delta(moveSpeed: float) -> float:

@@ -12,11 +12,9 @@ func Physics_Update(delta: float):
 	speed_delta = get_speed_delta(info.WalkSpeed)
 
 	# TODO: not this
-	if  1==0:
+	if  on_slope():
 		info.RigidBody.apply_central_force(get_slope_angle().normalized() * (info.WalkSpeed * speed_delta))
 		DebugDraw.draw_arrow_ray(Vector3(0,1,0), get_slope_angle().normalized(), 10)
-		print(get_slope_angle().normalized())
-		print(move_direction.normalized())
 	else:
 		info.RigidBody.apply_central_force(move_direction.normalized() * (info.WalkSpeed * speed_delta))
 		DebugDraw.draw_arrow_ray(Vector3(0,1,0), move_direction.normalized(), 10)
