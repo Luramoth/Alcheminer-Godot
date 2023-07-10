@@ -3,6 +3,7 @@ extends Node
 @export_group("Data")
 @export var PWalkSpeed: int = 7
 @export var PRunSpeed: int = 14
+@export var PJumpPower: int = 10
 
 @export_group("Resorces")
 @export var initial_state: PlayerState
@@ -25,9 +26,11 @@ func _ready():
 
 	info.WalkSpeed = PWalkSpeed
 	info.RunSpeed = PRunSpeed
+	info.JumpPower = PJumpPower
 	info.RigidBody = $"../PlayerBody"
 	info.CameraOrientation = $"../camera-yaw"
 	info.SlopeRay = $"../PlayerBody/SlopeCast"
+	info.GroundCast = $"../PlayerBody/GroundCast"
 
 func _process(delta):
 	if current_state:

@@ -23,7 +23,7 @@ func on_slope() -> bool:
 	return false
 
 func get_slope_angle() -> Vector3:
-	var plane: Vector3 = move_direction.project(info.SlopeRay.get_collision_normal())
+	var plane: Vector3 = info.SlopeRay.get_collision_normal().rotated(Vector3.RIGHT, -PI/2).rotated(Vector3.FORWARD, PI/4).project(move_direction)
 	return plane
 
 func get_speed_delta(moveSpeed: float) -> float:

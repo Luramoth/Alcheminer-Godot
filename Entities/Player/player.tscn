@@ -34,6 +34,7 @@ shape = SubResource("SphereShape3D_ensfc")
 target_position = Vector3(0, 0, 0)
 
 [node name="camera-yaw" type="Node3D" parent="."]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0, 0, 0)
 script = ExtResource("2_ghc1o")
 
 [node name="camera-pitch" type="Node3D" parent="camera-yaw"]
