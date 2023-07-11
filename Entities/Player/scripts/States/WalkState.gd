@@ -18,3 +18,4 @@ func Physics_Update(delta: float):
 	else:
 		info.RigidBody.apply_central_force(move_direction.normalized() * (info.WalkSpeed * speed_delta))
 		DebugDraw.draw_arrow_ray(Vector3(0,1,0), move_direction.normalized(), 10)
+
