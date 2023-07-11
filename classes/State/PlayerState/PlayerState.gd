@@ -22,6 +22,10 @@ func on_slope() -> bool:
 		return angle != 0
 	return false
 
+## returns the angle of the ground in radians
+func ground_angle() -> float:
+	return Vector3.UP.angle_to(info.GroundCast.get_collision_normal(0))
+
 func get_slope_angle() -> Vector3:
 	# im leaving all this here as a memorial to my struggles
 	#var slope_angle: float = Vector3.UP.angle_to(info.GroundCast.get_collision_normal(0)) # rotation still doesent work but i may be on to somthing
