@@ -15,6 +15,10 @@ run/main_scene="res://maps/debug_movement.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -22,7 +26,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/wakatime/plugin.cfg", "res://addons/debug_menu/plugin.cfg")
 
 [input]
 
