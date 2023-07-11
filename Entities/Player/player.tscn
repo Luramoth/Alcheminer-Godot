@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://oq3qd4g1e6a"]
+[gd_scene load_steps=8 format=3 uid="uid://oq3qd4g1e6a"]
 
+[ext_resource type="PhysicsMaterial" uid="uid://bwywikrridjwt" path="res://Entities/Player/resources/PlayerPhysicsMaterial.tres" id="1_ycxex"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/camera-arm.gd" id="2_ghc1o"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/StateMacheine.gd" id="2_y06s4"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/States/WalkState.gd" id="3_dmg18"]
@@ -15,6 +16,7 @@
 [node name="PlayerBody" type="RigidBody3D" parent="."]
 mass = 10.0
 inertia = Vector3(0.55, 0, 0)
+physics_material_override = ExtResource("1_ycxex")
 continuous_cd = true
 can_sleep = false
 lock_rotation = true
