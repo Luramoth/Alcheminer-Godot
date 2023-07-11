@@ -27,9 +27,6 @@ shape = SubResource("CapsuleShape3D_b08w3")
 [node name="Vis" type="MeshInstance3D" parent="PlayerBody"]
 mesh = SubResource("CapsuleMesh_78x7l")
 
-[node name="SlopeCast" type="RayCast3D" parent="PlayerBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
 [node name="GroundCast" type="ShapeCast3D" parent="PlayerBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
 shape = SubResource("SphereShape3D_ensfc")

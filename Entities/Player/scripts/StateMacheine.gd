@@ -29,7 +29,6 @@ func _ready():
 	info.JumpPower = PJumpPower
 	info.RigidBody = $"../PlayerBody"
 	info.CameraOrientation = $"../camera-yaw"
-	info.SlopeRay = $"../PlayerBody/SlopeCast"
 	info.GroundCast = $"../PlayerBody/GroundCast"
 
 func _process(delta):
