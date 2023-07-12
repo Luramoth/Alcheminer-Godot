@@ -56,3 +56,4 @@ func on_child_transition(state: PlayerState, new_state_name: String):
 	new_state.PEnter(info)
 
 	current_state = new_state
+	print("transitioned to: " + new_state_name)
