@@ -5,6 +5,8 @@ extends Node
 @export var PRunSpeed: int = 14
 @export var PJumpPower: int = 10
 
+@export var PMaxSlope:float = 50
+
 @export_group("Resorces")
 @export var initial_state: PlayerState
 
@@ -27,6 +29,7 @@ func _ready():
 	info.WalkSpeed = PWalkSpeed
 	info.RunSpeed = PRunSpeed
 	info.JumpPower = PJumpPower
+	info.MaxSlope = PMaxSlope
 	info.RigidBody = $"../PlayerBody"
 	info.CameraOrientation = $"../camera-yaw"
 	info.GroundCast = $"../PlayerBody/GroundCast"
