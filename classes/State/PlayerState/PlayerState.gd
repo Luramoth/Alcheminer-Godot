@@ -49,12 +49,18 @@ func on_ground() -> bool:
 			return false
 	return false
 
-func get_speed_delta(moveSpeed: float) -> float:
-	return clamp(remap(info.RigidBody.linear_velocity.length(), 0, moveSpeed, speed_mult, 0),0, speed_mult)
+func get_speed_delta() -> float:
+	return clamp(remap(info.RigidBody.linear_velocity.length(), 0, get_move_speed(), speed_mult, 0),0, speed_mult)
 
-func sloped_move_player(moveSpeed: float):
+func get_move_speed() -> int:
+	if Input.is_action_pressed("sprint"):
+		return info.RunSpeed
+	else:
+		return info.WalkSpeed
+
+func sloped_move_player():
 	if rad_to_deg(ground_angle()) < info.MaxSlope:
-		info.RigidBody.apply_central_force(get_slope_angle().normalized() * (moveSpeed * get_speed_delta(moveSpeed)))
+		info.RigidBody.apply_central_force(get_slope_angle().normalized() * (get_move_speed() * get_speed_delta()))
 
-func move_player(moveSpeed: float):
-	info.RigidBody.apply_central_force(move_direction.normalized() * (moveSpeed * get_speed_delta(moveSpeed)))
+func move_player():
+	info.RigidBody.apply_central_force(move_direction.normalized() * (get_move_speed() * get_speed_delta()))

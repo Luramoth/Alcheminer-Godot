@@ -6,6 +6,6 @@ func Physics_Update(delta: float):
 	super(delta)
 
 	if on_ground():
-		sloped_move_player(info.WalkSpeed)
+		sloped_move_player()
 	else:
 		Transition.emit(self, "AirState")

@@ -4,6 +4,6 @@ func Physics_Update(delta: float):
 	super(delta)
 
 	if !on_ground():
-		move_player(info.WalkSpeed)
+		move_player()
 	else:
 		Transition.emit(self, "WalkState")

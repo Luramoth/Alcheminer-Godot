@@ -49,6 +49,8 @@ initial_state = NodePath("WalkState")
 
 [node name="WalkState" type="Node" parent="StateMacheine"]
 script = ExtResource("3_dmg18")
+speed_mult = null
 
 [node name="AirState" type="Node" parent="StateMacheine"]
 script = ExtResource("5_w56js")
+speed_mult = null
