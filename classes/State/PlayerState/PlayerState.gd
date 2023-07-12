@@ -34,5 +34,13 @@ func get_slope_angle() -> Vector3:
 	# i spent so long trying to make my own project to plane method only to find it already exists ;-;
 	return Plane(info.GroundCast.get_collision_normal(0)).project(move_direction)
 
+func on_ground() -> bool:
+	if info.GroundCast.is_colliding():
+		if ground_angle() < info.MaxSlope:
+			return true
+		else:
+			return false
+	return false
+
 func get_speed_delta(moveSpeed: float) -> float:
 	return clamp(remap(info.RigidBody.linear_velocity.length(), 0, moveSpeed, speed_mult, 0),0, speed_mult)
