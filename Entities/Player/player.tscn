@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://oq3qd4g1e6a"]
+[gd_scene load_steps=9 format=3 uid="uid://oq3qd4g1e6a"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://bwywikrridjwt" path="res://Entities/Player/resources/PlayerPhysicsMaterial.tres" id="1_ycxex"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/camera-arm.gd" id="2_ghc1o"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/StateMacheine.gd" id="2_y06s4"]
 [ext_resource type="Script" path="res://Entities/Player/scripts/States/WalkState.gd" id="3_dmg18"]
+[ext_resource type="Script" path="res://Entities/Player/scripts/States/AirState.gd" id="5_w56js"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b08w3"]
 
@@ -48,3 +49,7 @@ initial_state = NodePath("WalkState")
 
 [node name="WalkState" type="Node" parent="StateMacheine"]
 script = ExtResource("3_dmg18")
+speed_mult = null
+
+[node name="AirState" type="Node" parent="StateMacheine"]
+script = ExtResource("5_w56js")

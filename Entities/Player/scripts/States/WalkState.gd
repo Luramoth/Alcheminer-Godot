@@ -2,15 +2,10 @@ extends PlayerState
 
 var speed_delta: float
 
-func Update(delta: float):
-	forward = InputMan.get_axis().y
-	backward = InputMan.get_axis().x
-
 func Physics_Update(delta: float):
-	get_move_direction()
+	super(delta)
 
-	speed_delta = get_speed_delta(info.WalkSpeed)
-
-	if rad_to_deg(ground_angle()) < info.MaxSlope:
-		info.RigidBody.apply_central_force(get_slope_angle().normalized() * (info.WalkSpeed * speed_delta))
-		DebugDraw.draw_arrow_ray(Vector3(0,1,0), get_slope_angle().normalized(), 10)
+	if on_ground():
+		sloped_move_player(info.WalkSpeed)
+	else:
+		pass

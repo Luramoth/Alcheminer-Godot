@@ -13,6 +13,13 @@ func PEnter(move_info: MoveInfo):
 	self.info = move_info
 	self.Enter()
 
+func Update(_delta: float):
+	forward = InputMan.get_axis().y
+	backward = InputMan.get_axis().x
+
+func Physics_Update(_delta: float):
+	get_move_direction()
+
 func get_move_direction():
 		move_direction = (info.CameraOrientation.transform.basis.z * forward) + (info.CameraOrientation.transform.basis.x * backward)
 
@@ -44,3 +51,10 @@ func on_ground() -> bool:
 
 func get_speed_delta(moveSpeed: float) -> float:
 	return clamp(remap(info.RigidBody.linear_velocity.length(), 0, moveSpeed, speed_mult, 0),0, speed_mult)
+
+func sloped_move_player(moveSpeed: float):
+	if rad_to_deg(ground_angle()) < info.MaxSlope:
+		info.RigidBody.apply_central_force(get_slope_angle().normalized() * (moveSpeed * get_speed_delta(moveSpeed)))
+
+func move_player(moveSpeed: float):
+	info.RigidBody.apply_central_force(move_direction.normalized() * (moveSpeed * get_speed_delta(moveSpeed)))
