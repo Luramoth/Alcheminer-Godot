@@ -49,8 +49,12 @@ initial_state = NodePath("WalkState")
 
 [node name="WalkState" type="Node" parent="StateMacheine"]
 script = ExtResource("3_dmg18")
-speed_mult = null
 
 [node name="AirState" type="Node" parent="StateMacheine"]
 script = ExtResource("5_w56js")
-speed_mult = null
+
+[node name="Timer" type="Timer" parent="StateMacheine/AirState"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="StateMacheine/AirState/Timer" to="StateMacheine/AirState" method="_on_timer_timeout"]

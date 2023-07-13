@@ -64,3 +64,6 @@ func sloped_move_player():
 
 func move_player():
 	info.RigidBody.apply_central_force(move_direction.normalized() * (get_move_speed() * get_speed_delta()))
+
+func jump():
+	info.RigidBody.apply_central_impulse(Vector3.UP * info.JumpPower)

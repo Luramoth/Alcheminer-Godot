@@ -3,7 +3,7 @@ extends Node
 @export_group("Data")
 @export var PWalkSpeed: int = 7
 @export var PRunSpeed: int = 12
-@export var PJumpPower: int = 10
+@export var PJumpPower: int = 70
 
 @export var PMaxSlope:float = 50
 
@@ -56,4 +56,3 @@ func on_child_transition(state: PlayerState, new_state_name: String):
 	new_state.PEnter(info)
 
 	current_state = new_state
-	print("transitioned to: " + new_state_name)
