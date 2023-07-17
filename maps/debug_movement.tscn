@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://f3bxqkdhxsc0"]
+[gd_scene load_steps=7 format=3 uid="uid://f3bxqkdhxsc0"]
 
 [ext_resource type="PackedScene" uid="uid://oq3qd4g1e6a" path="res://Entities/Player/player.tscn" id="1_64lvl"]
+[ext_resource type="Texture2D" uid="uid://d1vb687ftudp0" path="res://addons/kenney_prototype_textures/purple/texture_08.png" id="2_q4iyb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4g1vv"]
 
@@ -10,6 +11,15 @@ sky_material = SubResource("ProceduralSkyMaterial_4g1vv")
 [sub_resource type="Environment" id="Environment_hxlqj"]
 background_mode = 2
 sky = SubResource("Sky_vqmml")
+ambient_light_source = 3
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+volumetric_fog_detail_spread = 1.46409
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umcpb"]
+albedo_texture = ExtResource("2_q4iyb")
 
 [node name="DEBUG_movement" type="Node3D"]
 
@@ -40,6 +50,7 @@ size = Vector3(16.3704, 1.46468, 34.8086)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-1.73975e-08, 0.707107, 0.707107, 0, 0.707107, -0.707107, -0.398009, -3.09086e-08, -3.09086e-08, -9.58206, 0.725269, 10.171)
+material_override = SubResource("StandardMaterial3D_umcpb")
 size = Vector3(16.3704, 1.46468, 34.8086)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
