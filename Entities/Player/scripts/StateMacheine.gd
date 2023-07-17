@@ -3,7 +3,7 @@ extends Node
 @export_group("Data")
 @export var PWalkSpeed: int = 7
 @export var PRunSpeed: int = 12
-@export var PJumpPower: int = 70
+@export var PJumpPower: int = 45
 
 @export var PMaxSlope:float = 50
 

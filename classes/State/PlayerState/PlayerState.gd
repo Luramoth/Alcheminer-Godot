@@ -1,7 +1,7 @@
 extends State
 class_name PlayerState
 
-@export var speed_mult: float = 100
+@export var speed_mult: float = 50
 
 var forward: float
 var backward: float
