@@ -23,5 +23,10 @@ func _input(event):
 		pitch.rotation.x = xrot
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	self.position = rb.position
+
+	if Input.is_action_pressed("cam shift"):
+		pitch.position.x = lerp(pitch.position.x, -1.5, delta * 25)
+	else:
+		pitch.position.x = lerp(pitch.position.x, 0.0, delta * 25)
