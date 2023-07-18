@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dyprcpoixtos4"]
+
+[sub_resource type="GDScript" id="GDScript_2ryeo"]
+script/source = "extends Resource
+class_name PlayerInfo
+
+@export_group(\"Movement\")
+
+@export_subgroup(\"\")
+@export_range(0,90) var MaxSlope:float = 50
+@export var canJump: bool
+
+@export_subgroup(\"Speed\")
+@export var WalkSpeed: int = 7
+@export var RunSpeed: int = 12
+@export var JumpPower: int = 45
+
+@export_subgroup(\"References\")
+@export var rigidbody: RigidBody3D
+@export var cameraArm: Node3D
+@export var groundCast: ShapeCast3D
+"
+
+[resource]
+script = SubResource("GDScript_2ryeo")
+MaxSlope = 50.0
+canJump = false
+WalkSpeed = 7
+RunSpeed = 12
+JumpPower = 45
