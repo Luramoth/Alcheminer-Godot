@@ -1,13 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://f3bxqkdhxsc0"]
+[gd_scene load_steps=9 format=3 uid="uid://f3bxqkdhxsc0"]
 
 [ext_resource type="PackedScene" uid="uid://oq3qd4g1e6a" path="res://Entities/Player/player.tscn" id="1_64lvl"]
+[ext_resource type="Shader" path="res://Entities/daynight/daynight.gdshader" id="2_1qhch"]
 [ext_resource type="Material" uid="uid://d0xlwpeni5yft" path="res://Assets/Materials/DEBUG_green.tres" id="2_pu6fn"]
 [ext_resource type="Texture2D" uid="uid://d1vb687ftudp0" path="res://addons/kenney_prototype_textures/purple/texture_08.png" id="2_q4iyb"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4g1vv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xnao5"]
+shader = ExtResource("2_1qhch")
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 1.35
+shader_parameter/clouds_direction = 0.0785047
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_cutoff = 0.51
+shader_parameter/clouds_fuzziness = 0.5
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 0.25
+shader_parameter/horizon_color = Color(0, 0.7, 0.8, 1)
+shader_parameter/horizon_blur = 0.05
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.1
+shader_parameter/overwritten_time = 0.0
+shader_parameter/day_top_color = Color(0.1, 0.6, 1, 1)
+shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.5, 0.7, 1)
+shader_parameter/night_top_color = Color(0.02, 0, 0.04, 1)
+shader_parameter/night_bottom_color = Color(0.1, 0, 0.2, 1)
+shader_parameter/stars_speed = 1.0
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0, 0, 1)
+shader_parameter/sun_size = 0.339
+shader_parameter/sun_blur = 2.34
 
 [sub_resource type="Sky" id="Sky_vqmml"]
-sky_material = SubResource("ProceduralSkyMaterial_4g1vv")
+sky_material = SubResource("ShaderMaterial_xnao5")
 
 [sub_resource type="Environment" id="Environment_hxlqj"]
 background_mode = 2
@@ -31,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198656, 11.0593, 4.79667)
 environment = SubResource("Environment_hxlqj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.978654, 0.122437, -0.165063, 0.00088536, 0.805669, 0.592365, 0.205514, 0.579574, -0.78858, 0, 11.9455, 0)
+transform = Transform3D(-0.978654, 0.122437, -0.165063, -0.0348293, 0.692738, 0.720348, 0.202543, 0.71072, -0.673686, 0, 11.9455, 0)
 shadow_enabled = true
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
